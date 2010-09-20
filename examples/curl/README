@@ -1,0 +1,11 @@
+To get started with this example, edit the vars.sh file and add your API key.
+If you need an API key, instructions for getting one can be found at:
+
+http://open.democrats.org/2010/07/voter-registration-api/
+
+Following along with the above will be helpful while reviewing the example files:
+
+- fetch_fields.sh - Shows how to fetch the JSON specification of required fields for each state.
+- send_registration.sh - Shows how to post a JSON document to the registration server.
+
+If you need additional help, please refer to the link above for the mailing list info.
