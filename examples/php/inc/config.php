@@ -13,6 +13,12 @@ class VoterRegConfig {
     return "https://" . $this->host . $this->base_path . "registrations.json?key=" . $this->api_key;
   }
 
+  public function __construct() {
+    if (! $this->api_key) {
+      die("No API key set.  Edit inc/config.php and add your key.\n");
+    }
+  }
+
 }
 
 ?>
