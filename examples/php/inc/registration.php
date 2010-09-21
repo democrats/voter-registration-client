@@ -74,6 +74,9 @@ class VoterRegRegistration {
       return false;
     }
 
+    // clear previous errors
+    unset($this->error);
+
     $base_url = $this->cfg->getBaseRegistrationUrl();
     $url = $base_url .'&'. $this->build_query_string();
 
@@ -83,7 +86,12 @@ class VoterRegRegistration {
 
     $post_reply = curl_exec($ch);
     curl_close($ch);
-    var_dump($post_reply);
+    // var_dump($post_reply);
+
+    if ($post_reply == false) {
+      $this->error = curl_error($ch);
+      return false;
+    }
 
     $parsed = json_decode($post_reply, TRUE);
     $this->id_sha1 = $parsed["id_sha1"];
